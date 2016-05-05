@@ -49,21 +49,21 @@ h(H,L=I) :- lookup(H,L=I).
   M=Ret.
 
 eval(M,Ret) :-
-	write(M),nl,
-	M ==> M2,!, (M=M2,Ret=M2; eval(M2,Ret)).
+  write(M),nl,
+  M ==> M2,!, (M=M2,Ret=M2; eval(M2,Ret)).
 
 main :-
   M = ([
-  	prod :(
-  		r3 := 0;
-  		jump loop),
-  	loop :(
-  		ifeq(r1, jump done);
-  		r3 := r2 + r3;
-  		r1 := r1 + -1;
-  		jump loop),
-  	done :(jump r4
-  		)
+    prod :(
+      r3 := 0;
+      jump loop),
+    loop :(
+      ifeq(r1, jump done);
+      r3 := r2 + r3;
+      r1 := r1 + -1;
+      jump loop),
+    done :(jump r4
+      )
   ],[r1=10,r2=1,r3=0],(jump prod)),
   eval(M,_),
 
