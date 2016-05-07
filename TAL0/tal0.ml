@@ -121,7 +121,7 @@ let () =
       Add (1, 1, Int (-1),
       Jump (Label "loop"))));
     "done", Jump (Reg 4)
-  ],[1,Int 10;2, Int 1;3, Int 0],Jump (Label "prod") ) in
+  ],[1,Int 5;2, Int 6;3, Int 0],Jump (Label "prod") ) in
   let m2 = eval m in
   Printf.printf "%s\n" (show_m m2);
   Printf.printf "ok\n"

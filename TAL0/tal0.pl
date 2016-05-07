@@ -44,7 +44,6 @@ lookup(R,R1=N), R1 \= 0
 (H, R, (ifeq(R1, jump V); I)) ==> (H, R, I).
 
 eval(M,M3) :-
-  write(M),nl,
   (M ==> M2,!, (M=M2,M3=M2; eval(M2,M3)); M3=M).
 
 main :-
@@ -59,8 +58,9 @@ main :-
       jump loop),
     done :(
       jump r4)
-  ],[r1=1,r2=1,r3=0],(jump prod)),
-  eval(M,_),
+  ],[r1=5,r2=5,r3=0],(jump prod)),
+  eval(M,M2),
+  write(M2),nl,
 
   write(ok),nl,
 
